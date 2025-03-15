@@ -26,6 +26,9 @@ const readBooklist = allBooks.filter(book => storedReadListInt.includes(book.boo
 setReadList(readBooklist);
     },[])
 
+    // এই কোডটি এমন বইয়ের তালিকা তৈরি করে, যেগুলো আগেই storedReadListInt তালিকায় ছিল,
+    //  এবং তারপর সেই ফিল্টার করা বইগুলো setReadList এর মাধ্যমে সংরক্ষণ করে।
+
 
 
 
