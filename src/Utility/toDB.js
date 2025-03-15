@@ -1,31 +1,51 @@
-const getStoredReadList =() =>{
-    //readlist
-
+const getStoredReadList = () => {
     const storedlistStr = localStorage.getItem('read-list');
-    if(storedlistStr){
-        const storedList = JSON.parse(storedlistStr);
-        return  storedList;
-
+    if (storedlistStr) {
+        return JSON.parse(storedlistStr);
+    } else {
+        return [];
     }
-    else{
-        return[];
-    }
-}
+};
 
-const addToStoredReadList= (id) =>{
+
+
+const addToStoredReadList = (id) => {
     const storedList = getStoredReadList();
-    if( storedList.includes(id)){
-        //alreday exists .do not need to add this
-        console.log(id,'already exists in the read list');
-    }
-    else{
+    if (storedList.includes(id)) {
+        console.log(id, 'already exists in the read list');
+    } else {
         storedList.push(id);
-        const storedlistStr= JSON.stringify(storedList);
-        localStorage.setItem('read-list',storedlistStr);
+        localStorage.setItem('read-list', JSON.stringify(storedList));
     }
-}
+};
 
-export{ addToStoredReadList};
+
+
+const getStoredWishList = () => {
+    const storedlistStr = localStorage.getItem('wish-list');
+    if (storedlistStr) {
+        return JSON.parse(storedlistStr);
+    } else {
+        return [];
+    }
+};
+
+
+
+const addToStoredWishList = (id) => {
+    const storedList = getStoredWishList();
+    if (storedList.includes(id)) {
+        console.log(id, 'already exists in the wish list');
+    } else {
+        storedList.push(id);
+        localStorage.setItem('wish-list', JSON.stringify(storedList));
+    }
+};
+
+
+
+
+export{ addToStoredReadList,addToStoredWishList,getStoredReadList};
 
 
 //এই ফাইলটি মূলত Local Storage ব্যবহার করে একটি "Read List" সংরক্ষণ ও আপডেট করার জন্য ব্যবহার করা হয়।
